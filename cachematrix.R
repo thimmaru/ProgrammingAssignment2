@@ -2,14 +2,14 @@
 ## This will cache its inverse
 
 makeCacheMatrix <- function(x = matrix) {
-    inv <- NULL
+    inverse <- NULL
     set <- function(y) {
     x <<- y
-    inv <<- NULL
+    inverse <<- NULL
   }
   get <- function(x) 
-    setinv <- function(inverse) inv <<- inverse
-  getinv <- function(inv)
+    setinverse <- function(inverse) inverse <<- inverse
+  getinverse <- function(inverse)
   list(set = set, get = get, setinv = setinv, getinv = getinv)
   
 }
@@ -17,14 +17,14 @@ makeCacheMatrix <- function(x = matrix) {
 
 ##The following function retuns a matrix that is inverse of "x"
 cacheSolve <- function(x, ...) {
-     inv <- x$getInverse()
-if (!is.null(inv)) {
-  return(inv)
+     inverse <- x$getInverse()
+if (!is.null(inverse)) {
+  return(inverse)
 }
 mat <- x$get()
-inv <- solve(mat, ...)
+inverse <- solve(mat, ...)
 x$setInverse(inv)
-inv
+inverse
 }
         
  
